@@ -1,0 +1,504 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+    <title>
+        C语言进阶学习第一天 |
+        
+        Alex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="计算机内存模型 32&#x2F;64位机表示其相应指令集的指令长度，表示其cpu位宽，以及数据总线的宽度，计算机的寻址能力与地址总线位宽有关，一般来说，32位机拥有32根地址总线，但是这并不意味着32位机的寻址能力就一定是32位的，他有可能是36位，64位同理，目前并没有64位寻址能力的计算机，但是寻址范围是由32位与64位决定的，32位电脑的寻址范围为4G，而64位电脑的寻址范围则是2的32次方字节，以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言进阶学习第一天">
+<meta property="og:url" content="http://example.com/2023/07/19/C%20%20study%20%20%20first%20%20%20%20day/index.html">
+<meta property="og:site_name" content="Alex">
+<meta property="og:description" content="计算机内存模型 32&#x2F;64位机表示其相应指令集的指令长度，表示其cpu位宽，以及数据总线的宽度，计算机的寻址能力与地址总线位宽有关，一般来说，32位机拥有32根地址总线，但是这并不意味着32位机的寻址能力就一定是32位的，他有可能是36位，64位同理，目前并没有64位寻址能力的计算机，但是寻址范围是由32位与64位决定的，32位电脑的寻址范围为4G，而64位电脑的寻址范围则是2的32次方字节，以">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-07-19T00:35:46.260Z">
+<meta property="article:modified_time" content="2023-07-22T12:01:16.938Z">
+<meta property="article:author" content="AlexLanceplus">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Alex" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@latest/index.min.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="C语言进阶学习第一天" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <h1 id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo">C语言进阶学习第一天</a>
+                    
+                
+            </h1>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-C  study   first    day" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date">
+    <a href="/2023/07/19/C%20%20study%20%20%20first%20%20%20%20day/" class="article-date-link">
+        <time datetime="2023-07-19T00:35:46.260Z"
+              itemprop="datePublished">2023-07-19</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h3 id="计算机内存模型"><a class="markdownIt-Anchor" href="#计算机内存模型"></a> 计算机内存模型</h3>
+<p>32/64位机表示其相应指令集的指令长度，表示其cpu位宽，以及数据总线的宽度，计算机的寻址能力与地址总线位宽有关，一般来说，32位机拥有32根地址总线，但是这并不意味着32位机的寻址能力就一定是32位的，他有可能是36位，64位同理，目前并没有64位寻址能力的计算机，但是寻址范围是由32位与64位决定的，32位电脑的寻址范围为4G，而64位电脑的寻址范围则是2的32次方字节，以32位机为例，计算机的内存模型分为两部分，一部分为1G的内核态，一部分为3G的用户态，其中用户态分为栈、共享内存映射区、堆、bss段（未初始化或初始化为零的全局变量）、data段（初始化不为零的全局变量和静态变量）、text段（代码段和rodata段）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//www.bilibili.com/read/cv19325810</span></span><br></pre></td></tr></table></figure>
+<h3 id="计算机编码"><a class="markdownIt-Anchor" href="#计算机编码"></a> 计算机编码</h3>
+<p>计算机为能够简化计算以及处理正负零问题，借助模的思想，创建了补码，通过补码进行运算，补码的运算规则主要有取反操作时，符号位也要参与运算，符号位为1表示负，正负转化的方法是取反后加一，例如128的二进制为1000  0000，则-128的反码为01111  1111，因此128的补码-128为1000 0000</p>
+<h3 id="数据类型"><a class="markdownIt-Anchor" href="#数据类型"></a> 数据类型</h3>
+<p>数据类型的本质是对内存的格式化，通过定义数据类型来确定内存区域的访问方式与规则，比如int   a，就规定了内存区域的访问方式是a，访问规则是int类型，再比如一个例子：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">void</span>* p = <span class="built_in">malloc</span>(<span class="number">8</span>);  <span class="comment">//开辟内存区</span></span><br><span class="line">	<span class="type">char</span>* cp =(<span class="type">char</span>*)p;   <span class="comment">//字符类型</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cp[i] = <span class="string">&#x27;a&#x27;</span> + i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; <span class="number">8</span>; j++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%c  &quot;</span>, cp[j]);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	<span class="type">int</span>* sp = (<span class="type">int</span>*)p;  <span class="comment">//整数类型</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> n = <span class="number">0</span>; n &lt; <span class="number">2</span>; n++)</span><br><span class="line">	&#123;</span><br><span class="line">		cp[n] = n;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> m = <span class="number">0</span>; m &lt; <span class="number">2</span>; m++)</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d  &quot;</span>, cp[m]);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="类型转换"><a class="markdownIt-Anchor" href="#类型转换"></a> 类型转换</h3>
+<p>类型转换分为强制类型转换和隐式类型转换，类型转换的意义在于将小数据赋值给大数据，可以防止精度丢失，强制转换也叫做显性转换，比如</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="type">int</span>)(x+y)</span><br><span class="line">(<span class="type">float</span>)x</span><br></pre></td></tr></table></figure>
+<p>隐式类型转换</p>
+<p>隐式类型转换的情况分为两种，一种是大数据赋值给小数据，二进制尾部对齐，截断，可能会丢失数据，另一种是小数据赋值给大数据，</p>
+<p>也是隐式转换的通常情况，转换规则为short和char转换为int，int转换为unsigned   int，unsigned  int转换为long，long和float会转换为</p>
+<p>double类型</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="type">float</span> PI = <span class="number">3.14159</span>;</span><br><span class="line">    <span class="type">int</span> s1, r = <span class="number">5</span>;</span><br><span class="line">    <span class="type">double</span> s2;</span><br><span class="line">    s1 = r * r * PI;</span><br><span class="line">    s2 = r * r * PI;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;s1=%d, s2=%f\n&quot;</span>, s1, s2);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上述代码结果中，r变量在计算的过程中会提升为double类型而s1是大数据赋值给小数据，会发生截断，而s2则没事</p>
+<p>整型提升</p>
+<p>整型提升是隐式类型转换的一种情况，当char和short进行运算时，会转换为int类型进行运算，因为在cpu上int的执行效率是最高的</p>
+<h3 id="习题"><a class="markdownIt-Anchor" href="#习题"></a> 习题</h3>
+<p>1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//输出结果</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">foo</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> a = <span class="number">6</span>;</span><br><span class="line">    <span class="type">int</span> b = <span class="number">-20</span>;</span><br><span class="line">    (a+b&gt;<span class="number">6</span>) ? <span class="built_in">puts</span>(<span class="string">&quot;&gt;6&quot;</span>):<span class="built_in">puts</span>(<span class="string">&quot;&lt;=6&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    foo();</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>; </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//类型转换的方向是小数据向大数据转换，所以int类型会向unsigned  int类型转换，因此a+b在有符号位时的二进制表示为1111 0100，其中1表示表示符号位，但是当转换为unsigned类型时，符号位将参与实际运算，从而大于6</span></span><br></pre></td></tr></table></figure>
+<p>2</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> a[<span class="number">1000</span>];</span><br><span class="line">    <span class="type">int</span> i;</span><br><span class="line">    <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">1000</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i] = <span class="number">-1</span> -i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="built_in">strlen</span>(a));</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="进程空间"><a class="markdownIt-Anchor" href="#进程空间"></a> 进程空间</h3>
+<p><strong>程序</strong>：是经源码编译后的可编译文件，可执行文件可以多次被执行，程序存储在硬盘上，所以是静态概念，程序只有初始不为零的数据(initial   data)和代码段（rodata和text）</p>
+<p><strong>进程</strong>：是程序加载到内存后开始执行、至执行结束，这样的一段时间概念，是动态概念，进程随程序使用而开始，随程序结束而结束,进程有五个区，接下来着重讲一下</p>
+<p>程序到进程时，程序占据硬盘空间，而进程则使用虚拟内存，再由虚拟内存映射到真实内存，这一过程由操作系统实现</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//blog.csdn.net/Stars____/article/details/124312775</span></span><br></pre></td></tr></table></figure>
+<p><strong>数据在进程空间的存储</strong>：</p>
+<p>进程空间（虚拟内存）分为五个部分，自上而下分为：命令行相关（参数，环境变量）、栈（auto修饰的局部变量）、共享内存映射区（动态库加载）、堆、bss段（初始化为零或未初始化的全局变量）、data段（初始化不为零的全局变量）、text段（代码和常量）</p>
+<h3 id="函数的出栈压栈"><a class="markdownIt-Anchor" href="#函数的出栈压栈"></a> 函数的出栈/压栈</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="comment">//www.cnblogs.com/alexlance/p/17432758.html</span></span><br></pre></td></tr></table></figure>
+<h3 id="习题-2"><a class="markdownIt-Anchor" href="#习题-2"></a> 习题</h3>
+<p>1</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">char</span>*<span class="title function_">fa</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> *pa = <span class="string">&quot;123456&quot;</span>;</span><br><span class="line">    <span class="comment">// pa 指针在栈区，&quot;123456”在常量区，该函数调用完后指针变量 pa 就被释放了</span></span><br><span class="line">    <span class="type">char</span> *p = <span class="literal">NULL</span>;</span><br><span class="line">    <span class="comment">//指针变量 p 在栈中分配 4 字节</span></span><br><span class="line">    p = (<span class="type">char</span>*)<span class="built_in">malloc</span>(<span class="number">100</span>);</span><br><span class="line">    <span class="comment">//本函数在这里开辟了一块堆区的内存空间，并把地址赋值给 p</span></span><br><span class="line">    <span class="built_in">strcpy</span>(p, <span class="string">&quot;wudunxiong 1234566&quot;</span>);</span><br><span class="line">    <span class="comment">//把常量区的字符串拷贝到堆区</span></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">    <span class="comment">//返回给主调函数 fb()，相对 fa 来说 fb 是主调函数，相对 main 来说，</span></span><br><span class="line">    <span class="comment">//fa(),fb()都是被调用函数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">char</span>*<span class="title function_">fb</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="type">char</span> *pstr = <span class="literal">NULL</span>;</span><br><span class="line">    pstr = fa();</span><br><span class="line">    <span class="keyword">return</span> pstr;<span class="comment">//指针变量 pstr 在这就结束</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">void</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">    &#123;</span><br><span class="line">    <span class="type">char</span> *str = <span class="literal">NULL</span>;</span><br><span class="line">    str = fb();</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;str = %s\n&quot;</span>,str);</span><br><span class="line">    <span class="built_in">free</span>(str);</span><br><span class="line">    <span class="comment">//防止内存泄露，被调函数 fa()分配的内存存的值通过返回值传给主调函数，</span></span><br><span class="line">    <span class="comment">// 然后主调函数释放内存</span></span><br><span class="line">    str = <span class="literal">NULL</span>;<span class="comment">//防止产生野指针</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;malloc.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">reversearr</span><span class="params">(<span class="type">int</span> arr[],<span class="type">int</span> i,<span class="type">int</span> len)</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">if</span> (i != len - <span class="number">1</span>)</span><br><span class="line">		reversearr(arr, i + <span class="number">1</span>, len);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d   &quot;</span>, arr[i]);</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> arr[ ] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">10</span>&#125;;</span><br><span class="line">	<span class="type">int</span> sz = <span class="keyword">sizeof</span>(arr)/<span class="keyword">sizeof</span>(arr[<span class="number">0</span>]);</span><br><span class="line">	reversearr(arr, <span class="number">0</span>, sz);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一维数组"><a class="markdownIt-Anchor" href="#一维数组"></a> 一维数组</h3>
+<p><strong>本质</strong>：数组是用于存储相同数据类型数据，且在内存空间连续的一种数据结构类型</p>
+<p><strong>三要素</strong>：步长（由数组的基本数据类型决定）、范围、起始地址（数组名）</p>
+<p><strong>类型</strong>：type [N]</p>
+<p><strong>定义</strong>：type name[N]</p>
+<p><strong>大小</strong>：sizeof(type [N]) 或 sizeof(name)</p>
+<p><strong>访问方式</strong>：一种是数组整体访问，比如对数组求大小，sizeof(数组名)或者sizeof(type[N])，或者是对数组整体取地址，来获取数组指针，</p>
+<p>比如：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[<span class="number">10</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>,<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;arr = %p\n&quot;</span>,&amp;arr);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;&amp;arr+1 = %p\n&quot;</span>,&amp;arr+<span class="number">1</span>);</span><br><span class="line">    <span class="type">int</span>(*pa)[<span class="number">10</span>] = &amp;arr;   <span class="comment">//数组指针</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pa = %p\n&quot;</span>,pa); <span class="comment">//pa=&amp;arr</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;pa+1 = %p\n&quot;</span>,pa+<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>另一种访问方式则是数组名访问数组成员,其本质是指针的偏移</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name[i] == *(name+i) == i[name]</span><br></pre></td></tr></table></figure>
+<p>函数返回值（一级指针）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> * <span class="title function_">allocMem</span><span class="params">(<span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> *p = (<span class="type">char</span>*)<span class="built_in">malloc</span>(n);<span class="comment">//返回起始位置，堆区</span></span><br><span class="line">    <span class="keyword">return</span> p;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//char arr[100]=&quot;hello world&quot;;</span></span><br><span class="line">    <span class="comment">//return arr;</span></span><br><span class="line">    <span class="comment">//错误写法，栈上的空间是不可以返回的</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>参数返回（二级指针）</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="comment">//如果只用一级指针，函数随用随销，返回后p还会指向随机一段地址空间，仅在函数内有效，只有通过传入指针地址才能有效修改</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">allocMem</span><span class="params">(<span class="type">char</span> **p,<span class="type">int</span> n)</span> </span><br><span class="line">&#123;</span><br><span class="line">    *p = (<span class="type">char</span>*)<span class="built_in">malloc</span>(n);</span><br><span class="line">    <span class="keyword">return</span> *p== <span class="literal">NULL</span>?<span class="number">-1</span>:<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> *p;</span><br><span class="line">    <span class="keyword">if</span>(allocMem(&amp;p,<span class="number">100</span>)&lt;<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    <span class="built_in">strcpy</span>(p,<span class="string">&quot;china&quot;</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,p);</span><br><span class="line">    <span class="built_in">free</span>(p);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二维数组"><a class="markdownIt-Anchor" href="#二维数组"></a> 二维数组</h3>
+<p><strong>本质</strong>：二维数组的本质是一维数组，只不过，一维数组的成员又是一个一维数组而己</p>
+<p>定义：<strong>type[N]   name[M]</strong></p>
+<p>三要素：与一维数组相同</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a+i           a[i]         表示第i行的起始地址，是数组指针</span><br><span class="line">*(a+i)，      a[i]         &amp;a[i][<span class="number">0</span>]表示第 i 行第 <span class="number">0</span> 个元素地址，是一级指针</span><br><span class="line">*(a+i)+j，    a[i]+j       &amp;a[i][j]表示第 i 行第 j 个元素地址</span><br><span class="line">*(*(a+i)+j)   *(a[i]+j)    a[i][j]表示第 i 行第 j 个</span><br></pre></td></tr></table></figure>
+<p><strong>线性存储</strong>：二维数组在逻辑上是二维的，但是在存储上却是一维的</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> <span class="built_in">array</span>[<span class="number">2</span>][<span class="number">3</span>] = &#123;<span class="number">9</span>,<span class="number">8</span>,<span class="number">7</span>,<span class="number">6</span>,<span class="number">5</span>,<span class="number">4</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">2</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">3</span>;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,<span class="built_in">array</span>[i][j]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="type">int</span> *p = (<span class="type">int</span> *)<span class="built_in">array</span>;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">6</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,p[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>做参数传递</p>
+<p>二维数组本质是常量数组指针，所以跟其对应的形参也应该是数组指针类型的变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">displayArray</span><span class="params">(<span class="type">int</span>(*p)[<span class="number">4</span>],<span class="type">int</span> n)</span><span class="comment">//数组指针 </span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>,*(*(p+i)+j));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">putchar</span>(<span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> <span class="built_in">array</span>[<span class="number">3</span>][<span class="number">4</span>] = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>&#125;;</span><br><span class="line">    displayArray(<span class="built_in">array</span>,<span class="number">3</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="习题-3"><a class="markdownIt-Anchor" href="#习题-3"></a> 习题</h3>
+<p>现在数组 int a[3] = {1,3,5}; int b[5] = {2,4,6,8,10}; 合并到 int c[8]中去，使其依然 有序</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> a[<span class="number">3</span>] = &#123;<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>&#125;; <span class="type">int</span> b[<span class="number">5</span>] = &#123;<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">10</span>&#125;;</span><br><span class="line">    <span class="type">int</span> c[<span class="number">8</span>];</span><br><span class="line">    <span class="type">int</span> i=<span class="number">0</span>,j=<span class="number">0</span>,k=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;<span class="number">3</span>&amp;&amp;j&lt;<span class="number">5</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i] &lt; b[j])</span><br><span class="line">            c[k++] = a[i++];</span><br><span class="line">        <span class="keyword">else</span> (a[i] &gt; b[j])</span><br><span class="line">            c[k++] = b[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//判断最后一位的数据</span></span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">3</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(j&lt;<span class="number">5</span>)</span><br><span class="line">        c[k++] = b[j++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(j==<span class="number">5</span>)</span><br><span class="line">    &#123;	</span><br><span class="line">        <span class="keyword">while</span>(i&lt;<span class="number">3</span>)</span><br><span class="line">        c[k++] = a[i++];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>; i&lt;<span class="number">8</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,c[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//求次最值</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">secondMaxOfArray</span><span class="params">(<span class="type">int</span> *p, <span class="type">int</span> n)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> max, subm;</span><br><span class="line">    max = subm = *p;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i=<span class="number">1</span>;i&lt;n;i++) </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i] &gt; max)</span><br><span class="line">        &#123;</span><br><span class="line">            subm = max;</span><br><span class="line">            max = p[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i] &lt; max &amp;&amp; p[i]&gt;subm ||max == subm)<span class="comment">//防止连续相同的数字</span></span><br><span class="line">            &#123;</span><br><span class="line">                subm = p[i];</span><br><span class="line">            &#125;</span><br><span class="line">     &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> subm;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> arr[] = &#123;<span class="number">10</span>,<span class="number">10</span>,<span class="number">1</span>,<span class="number">4</span>&#125;;</span><br><span class="line">    <span class="type">int</span> subm = secondMaxOfArray(arr,<span class="number">4</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;subm = %d\n&quot;</span>,subm);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://example.com/2023/07/19/C%20%20study%20%20%20first%20%20%20%20day/" data-id="clkdyp8oa00042kv66f4t58he" data-title="C语言进阶学习第一天"
+               class="article-share-link">Share</a>
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="/covers/4.jpg" data-sizes="auto" alt="C-stack" class="lazyload">
+                    
+                
+                <a href="/2023/07/08/C-stack/"></a>
+                <div class="article-nav-caption">Older</div>
+                <div class="article-nav-title">
+                    
+                        C-stack
+                    
+                </div>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="AlexLanceplus" class="lazyload">
+            <div class="sidebar-author-name">AlexLanceplus</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer">
+    <div class="footer-line"></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                AlexLanceplus
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    7.9k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    00:37
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="AlexLanceplus" class="lazyload">
+            <div class="sidebar-author-name">AlexLanceplus</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">5</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+    
+<script src="https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js"></script>
+
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
