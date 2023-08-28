@@ -1,0 +1,469 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+    <title>
+        
+        Alex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="title：  C study  third  day  数组指针的提高 123456789101112&#x2F;&#x2F;分析代码输出结果char*  c[]&#x3D;&amp;#123;&quot;ENTER&quot;,&quot;NEW&quot;,&quot;POINT&quot;,&quot;FIRST&quot;&amp;#125;;char** cp[]&#x3D;&amp;#123;c+3,c+2,c+1,c&amp;#125;;char*">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Alex">
+<meta property="og:url" content="http://example.com/2023/08/21/C%20%20order/index.html">
+<meta property="og:site_name" content="Alex">
+<meta property="og:description" content="title：  C study  third  day  数组指针的提高 123456789101112&#x2F;&#x2F;分析代码输出结果char*  c[]&#x3D;&amp;#123;&quot;ENTER&quot;,&quot;NEW&quot;,&quot;POINT&quot;,&quot;FIRST&quot;&amp;#125;;char** cp[]&#x3D;&amp;#123;c+3,c+2,c+1,c&amp;#125;;char*">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-21T10:31:02.967Z">
+<meta property="article:modified_time" content="2023-08-24T08:34:19.612Z">
+<meta property="article:author" content="AlexLanceplus">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Alex" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@latest/index.min.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <h1 id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo">Alex</a>
+                    
+                
+            </h1>
+            
+                
+                
+                    <h2 id="subtitle-wrap">
+                        <a href="/" id="subtitle">喵~</a>
+                    </h2>
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-C  order" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date">
+    <a href="/2023/08/21/C%20%20order/" class="article-date-link">
+        <time datetime="2023-08-21T10:31:02.967Z"
+              itemprop="datePublished">2023-08-21</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <hr />
+<h2 id="title-c-study-third-day"><a class="markdownIt-Anchor" href="#title-c-study-third-day"></a> title：  C study  third  day</h2>
+<h3 id="数组指针的提高"><a class="markdownIt-Anchor" href="#数组指针的提高"></a> 数组指针的提高</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//分析代码输出结果</span></span><br><span class="line"><span class="type">char</span>*  c[]=&#123;<span class="string">&quot;ENTER&quot;</span>,<span class="string">&quot;NEW&quot;</span>,<span class="string">&quot;POINT&quot;</span>,<span class="string">&quot;FIRST&quot;</span>&#125;;</span><br><span class="line"><span class="type">char</span>** cp[]=&#123;c+<span class="number">3</span>,c+<span class="number">2</span>,c+<span class="number">1</span>,c&#125;;</span><br><span class="line"><span class="type">char</span>*** cpp=cp;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,**++cpp);<span class="comment">//cpp指向cp数组首元素，加一后指向cp[2],表示c+2，输出POINT,cpp现在处于cp+1的位置</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,*--*++cpp+<span class="number">3</span>);<span class="comment">//cpp现在指向cp+2,自加一后指向cp+3，即c+1，自减后指向c，再加3指向ENTER的后两位ER</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,*cpp[<span class="number">-2</span>]+<span class="number">3</span>);<span class="comment">//cpp[-2]相当于*(cpp2),即cp[0],加三即ST</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,*cpp[<span class="number">-1</span>][<span class="number">-1</span>]+<span class="number">1</span>);<span class="comment">//cpp位置不变，cpp[-1][-1]可以表示为*(*(cpp-1)-1)即*(cp[1]-1)=c+1,再加一得EW</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="选择与冒泡排序的优化"><a class="markdownIt-Anchor" href="#选择与冒泡排序的优化"></a> 选择与冒泡排序的优化</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//选择排序</span></span><br><span class="line"><span class="comment">//选择排序的过程为选取未排序的数组的首元素，与其后各个数组元素相比较，如果大于则交换，直到一轮结束，首元素有序</span></span><br><span class="line"><span class="comment">//重复此流程直至只剩下一个元素</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">selectsort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> sz)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;sz;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[i]&gt;p[j])</span><br><span class="line">            &#123;</span><br><span class="line">                p[i]^=p[j];</span><br><span class="line">                p[j]^=p[i];</span><br><span class="line">                p[i]^=p[j];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//选择优化</span></span><br><span class="line"><span class="comment">//选择优化的原则是比而不换，不减少比较次数，只减少交换次数</span></span><br><span class="line"><span class="comment">//创建idx变量记录最后一次需要交换的数值</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">selectsortplus</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> sz)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> idx=i;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=i+<span class="number">1</span>;j&lt;sz;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[idx]&gt;p[j])</span><br><span class="line">                idx=j;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(idx!=i)</span><br><span class="line">        &#123;</span><br><span class="line">            p[i]^=p[idx];</span><br><span class="line">            p[idx]^=p[i];</span><br><span class="line">            p[i]^=p[idx];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//冒泡排序</span></span><br><span class="line"><span class="comment">//冒泡排序的过程是将数组相邻的两个元素进行，小的沉下去，大的浮上来</span></span><br><span class="line"><span class="type">void</span>  <span class="title function_">popsort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> sz)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;sz-i-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j]&gt;p[j+<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                p[j]^=p[j+<span class="number">1</span>];</span><br><span class="line">                p[j+<span class="number">1</span>]^=p[j];</span><br><span class="line">                p[j]^=p[j+<span class="number">1</span>];</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//冒泡排序的优化</span></span><br><span class="line"><span class="comment">//序而不排，设置flag变量，如果已经有序，则无需再排</span></span><br><span class="line"><span class="type">void</span>  <span class="title function_">popsort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> sz)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz<span class="number">-1</span>;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> flag=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;sz-i-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j]&gt;p[j+<span class="number">1</span>])</span><br><span class="line">            &#123;</span><br><span class="line">                p[j]^=p[j+<span class="number">1</span>];</span><br><span class="line">                p[j+<span class="number">1</span>]^=p[j];</span><br><span class="line">                p[j]^=p[j+<span class="number">1</span>];</span><br><span class="line">                flag=<span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(flag)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="qsort提高优化"><a class="markdownIt-Anchor" href="#qsort提高优化"></a> qsort提高优化</h3>
+<p>qsort的本质是快速排序算法</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="comment">//快速排序算法的基本流程为选取数组随机一个元素(默认为第一个元素)，将其作为中轴，将小于中轴的元素置于中轴左侧，大于中轴的元素置于中轴的右侧，分别进行递归排序</span></span><br><span class="line"><span class="comment">//快速排序除了需要设定中轴以外，还需要设定low和high，也就是左界限和右界限，递归结束的条件是low与high相等</span></span><br><span class="line"><span class="comment">//low和high的移动和赋值遵循一定规律，low的原则是“小而移动，大而赋值”，high则相反</span></span><br><span class="line"><span class="type">void</span>  <span class="title function_">quicksort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> low,<span class="type">int</span> high)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(low&lt;high)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> pivot=p[low];</span><br><span class="line">        <span class="type">int</span> l=low;</span><br><span class="line">        <span class="type">int</span> h=high;</span><br><span class="line">        <span class="keyword">while</span>(l&lt;h)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">while</span>(p[h]&gt;=pivot&amp;&amp;l&lt;h)</span><br><span class="line">                h--;</span><br><span class="line">            p[l]=p[h];</span><br><span class="line">            <span class="keyword">while</span>(p[l]&lt;=pivot&amp;&amp;l&lt;h)</span><br><span class="line">                l++;</span><br><span class="line">            p[h]=p[l];</span><br><span class="line">        &#125;</span><br><span class="line">        p[l]=pivot;</span><br><span class="line">        quicksort(p,low,l<span class="number">-1</span>);</span><br><span class="line">        quicksort(p,l+<span class="number">1</span>,high);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="线性查找和二分递归"><a class="markdownIt-Anchor" href="#线性查找和二分递归"></a> 线性查找和二分递归</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//线性查找</span></span><br><span class="line"><span class="type">int</span>  <span class="title function_">selectsort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> sz,<span class="type">int</span> find)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;sz;i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p[i]==find)</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二分迭代查找</span></span><br><span class="line"><span class="type">int</span>  <span class="title function_">binarysort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> find,<span class="type">int</span> low,<span class="type">int</span> high)</span></span><br><span class="line">&#123;</span><br><span class="line">     <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="type">int</span> mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">         <span class="keyword">if</span>(find == p[mid])</span><br><span class="line">             <span class="keyword">return</span> mid;</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span>(find &gt; p[mid])</span><br><span class="line">             low=mid+<span class="number">1</span>;</span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">             high=mid<span class="number">-1</span>;</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//二分递归</span></span><br><span class="line"><span class="comment">//递归与循环本质相近，循环条件可以转换为递归条件</span></span><br><span class="line"><span class="comment">//递归最重要的三点是正线(函数压栈时的操作)、返值线(返回值)、逆线(出栈时的操作)</span></span><br><span class="line"><span class="type">int</span>  <span class="title function_">binarysort</span><span class="params">(<span class="type">int</span>* p,<span class="type">int</span> find,<span class="type">int</span> low,<span class="type">int</span> high)</span></span><br><span class="line">&#123;</span><br><span class="line">     <span class="keyword">while</span>(low&lt;=high)</span><br><span class="line">     &#123;</span><br><span class="line">         <span class="type">int</span> mid=(low+high)/<span class="number">2</span>;</span><br><span class="line">         <span class="keyword">if</span>(find == p[mid])</span><br><span class="line">             <span class="keyword">return</span> mid;</span><br><span class="line">         <span class="keyword">else</span> <span class="keyword">if</span>(find &gt; p[mid])</span><br><span class="line">             <span class="keyword">return</span>  binarysort(p,find,mid+<span class="number">1</span>,high);</span><br><span class="line">         <span class="keyword">else</span></span><br><span class="line">             <span class="keyword">return</span>  binarysort(p,find,low,mid<span class="number">-1</span>)</span><br><span class="line">     &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="双向链表"><a class="markdownIt-Anchor" href="#双向链表"></a> 双向链表</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dnode</span>&#123;</span></span><br><span class="line">    <span class="type">int</span> data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dnode</span>* <span class="title">pre</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">dnode</span>* <span class="title">next</span>;</span></span><br><span class="line">&#125;dnode;</span><br><span class="line"><span class="comment">//双向链表的创建(空链表)</span></span><br><span class="line">dnode* <span class="title function_">createlist</span><span class="params">(dnode* head)</span></span><br><span class="line">&#123;</span><br><span class="line">    dnode* head=(dnode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(dnode));</span><br><span class="line">    head-&gt;next=head;</span><br><span class="line">    head-&gt;pre=head;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//插入(头插法)</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">insertlist</span><span class="params">(dnode* head,<span class="type">int</span> data)</span></span><br><span class="line">&#123;</span><br><span class="line">    dnode* cur=(dnode*)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(dnode));</span><br><span class="line">    cur-&gt;data=data;</span><br><span class="line">    cur-&gt;next=head-&gt;next;</span><br><span class="line">    cur-&gt;pre=head;</span><br><span class="line">    head-&gt;next=cur;</span><br><span class="line">    cur-&gt;next-&gt;pre=cur;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//遍历链表,查找指定元素</span></span><br><span class="line"><span class="comment">//单向</span></span><br><span class="line">dnode* <span class="title function_">printlist</span><span class="params">(dnode* head,<span class="type">int</span> data)</span></span><br><span class="line">&#123;</span><br><span class="line">    dnode* p=head-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(p!=head)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;data==data)</span><br><span class="line">        &#123;</span><br><span class="line">            dnode* pfind=p;</span><br><span class="line">            <span class="keyword">return</span> pfind;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//双向</span></span><br><span class="line">dnode* <span class="title function_">searchlist</span><span class="params">(dnode* head,<span class="type">int</span> data)</span></span><br><span class="line">&#123;</span><br><span class="line">    dnode* p=head-&gt;pre;</span><br><span class="line">    dnode* q=head-&gt;next;</span><br><span class="line">    <span class="keyword">while</span>(q-&gt;pre!=p)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(p-&gt;data==data)</span><br><span class="line">            <span class="keyword">return</span> p;</span><br><span class="line">        <span class="keyword">if</span>(q-&gt;data==data)</span><br><span class="line">            <span class="keyword">return</span> q;</span><br><span class="line">        <span class="keyword">if</span>(p==q)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">        </span><br><span class="line">        p=p-&gt;pre;</span><br><span class="line">        q=q-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除链表指定元素</span></span><br><span class="line">dnode* <span class="title function_">deletelist</span><span class="params">(dnode* head,dnode* pfind)</span></span><br><span class="line">&#123;</span><br><span class="line">    pfind-&gt;pre-&gt;next=pfind-&gt;next;</span><br><span class="line">    pfind-&gt;next-&gt;pre=pfind-&gt;pre</span><br><span class="line">    <span class="built_in">free</span>(pfind);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//链表排序（交换指针版）</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">lenlist</span><span class="params">(dnode* head)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> a=<span class="number">0</span>;</span><br><span class="line">    dnode* p=head-&gt;pre;</span><br><span class="line">    <span class="keyword">while</span>(p!=head)</span><br><span class="line">    &#123;</span><br><span class="line">        a++;</span><br><span class="line">        p=p-&gt;pre;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">void</span> <span class="title function_">sortlist</span><span class="params">(dnode* head)</span></span><br><span class="line">&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;lenlist(head);i++)</span><br><span class="line">    &#123;</span><br><span class="line">        dnode* p=head-&gt;next;</span><br><span class="line">        dnode* q =p-&gt;next;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;lenlist(head)<span class="number">-1</span>-i;j++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span>(p-&gt;data &gt; q-&gt;data)</span><br><span class="line">            &#123;</span><br><span class="line">                p-&gt;pre-&gt;next=q;</span><br><span class="line">                q-&gt;pre=p-&gt;pre;</span><br><span class="line">                </span><br><span class="line">                p-&gt;pre=q;</span><br><span class="line">                q-&gt;next=p;</span><br><span class="line">                </span><br><span class="line">                p-&gt;next=q-&gt;next;</span><br><span class="line">                p-&gt;next-&gt;pre=p；</span><br><span class="line">            &#125;</span><br><span class="line">            p=p-&gt;next;</span><br><span class="line">            q=p-&gt;next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//销毁链表</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">destroyDList</span><span class="params">(DNode * head)</span></span><br><span class="line">&#123;</span><br><span class="line">    head-&gt;pre-&gt;next = <span class="literal">NULL</span>;</span><br><span class="line">    DNode * pre = head;</span><br><span class="line">    <span class="keyword">while</span>(head != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        head = head-&gt;next;</span><br><span class="line">        <span class="built_in">free</span>(pre);</span><br><span class="line">        pre = head;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://example.com/2023/08/21/C%20%20order/" data-id="clluinosu0004wwv69wx83s90" data-title=""
+               class="article-share-link">Share</a>
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav">
+        
+            <div class="article-nav-link-wrap article-nav-link-left">
+                
+                    
+                    
+                        <img data-src="/covers/1.jpg" data-sizes="auto" alt="C string" class="lazyload">
+                    
+                
+                <a href="/2023/08/25/C-string/"></a>
+                <div class="article-nav-caption">Newer</div>
+                <div class="article-nav-title">
+                    
+                        C string
+                    
+                </div>
+            </div>
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="/covers/3.jpg" data-sizes="auto" alt="C语言进阶学习第二天" class="lazyload">
+                    
+                
+                <a href="/2023/07/25/C%20%20array%20%20and%20%20point/"></a>
+                <div class="article-nav-caption">Older</div>
+                <div class="article-nav-title">
+                    
+                        C语言进阶学习第二天
+                    
+                </div>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="AlexLanceplus" class="lazyload">
+            <div class="sidebar-author-name">AlexLanceplus</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer">
+    <div class="footer-line"></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                AlexLanceplus
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    13.1k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    01:00
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="AlexLanceplus" class="lazyload">
+            <div class="sidebar-author-name">AlexLanceplus</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+    
+<script src="https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js"></script>
+
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+

@@ -115,17 +115,129 @@
         
     <div class="post-wrap-left">
         
-            <a class="post-link" href="/2023/07/19/C%20%20study%20%20%20first%20%20%20%20day/"></a>
+            <a class="post-link" href="/2023/08/25/C-string/"></a>
         
         
         <div class="post-cover-left">
             
                 
                 
-                    <img data-src="/covers/1.jpg" data-sizes="auto" alt="C语言进阶学习第一天" class="lazyload">
+                    <img data-src="/covers/1.jpg" data-sizes="auto" alt="C string" class="lazyload">
                 
             
 
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-08-25</a>
+                
+                    <a><span class="icon-pencil"></span>1.3k words</a>
+                
+                
+                    <a><span class="icon-clock"></span>5 mins</a>
+                
+            </div>
+            <div class="post-title">C string</div>
+            <article class="post-article">
+                
+                     字符串常量和字符数组
+字符串常量与字符数组具有一定的等价性，字符串常量的本质是const   char*  const类型，而字符数组则是char*类型，因此两者进行读写操作时，要考虑越界问题，一般来说，字符串常量很适用于那些不会对其进行修改的情形。要对其修改，则要存储于字符数组，当字符串存于字符数组，不存在读越界与写越界，那么就是可以称为等价了，越界的最主要原因是未能考虑到  ‘\0’  ，造成越界，可以通过n字符串函数避免这一问题
+12345678910char buf1[10]=&amp;quot;abcdefghij&amp;quot;;char* buf2=NULL;//  strcpy(buf2
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right">
+        
+            <a class="post-link" href="/2023/08/21/C%20%20order/"></a>
+        
+        <div class="post-cover-right">
+            
+                
+                
+                    <img data-src="/covers/3.jpg" data-sizes="auto" alt="" class="lazyload">
+                
+            
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-08-21</a>
+                
+                    <a><span class="icon-pencil"></span>1.4k words</a>
+                
+                
+                    <a><span class="icon-clock"></span>7 mins</a>
+                
+            </div>
+            <div class="post-title"></div>
+            <article class="post-article">
+                
+                    
+ title：  C study  third  day
+ 数组指针的提高
+123456789101112//分析代码输出结果char*  c[]=&amp;#123;&amp;quot;ENTER&amp;quot;,&amp;quot;NEW&amp;quot;,&amp;quot;POINT&amp;quot;,&amp;quot;FIRST&amp;quot;&amp;#125;;char** cp[]=&amp;#123;c+3,c+2,c+1,c&amp;#125;;char*** cpp=cp;int main(void)&amp;#123;    printf(&amp;quot;%s&amp;quot;,**++cpp);//cpp指向cp数组首元素，加一后指向cp[2],表示c+2，输出P
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-left">
+        
+            <a class="post-link" href="/2023/07/25/C%20%20array%20%20and%20%20point/"></a>
+        
+        
+        <div class="post-cover-left">
+            
+                
+                
+                    <img data-src="/covers/3.jpg" data-sizes="auto" alt="C语言进阶学习第二天" class="lazyload">
+                
+            
+
+        </div>
+        <div class="post-info">
+            <div class="post-meta">
+                <a><span class="icon-calendar"></span>2023-07-25</a>
+                
+                    <a><span class="icon-pencil"></span>2.5k words</a>
+                
+                
+                    <a><span class="icon-clock"></span>11 mins</a>
+                
+            </div>
+            <div class="post-title">C语言进阶学习第二天</div>
+            <article class="post-article">
+                
+                     数组指针
+步长：    type[  ]
+类型：    type(*)[  ]
+1234567891011121314151617//用一级指针访问二维数组，其原理是二维数组的线性存储    int arr[2][3] = &amp;#123; 1,2,3,4,5,6 &amp;#125;;	int* p = (int*)arr;  //将数组名显式转换为一级指针	for (int i = 0; i &amp;lt; 6; i++)		printf(&amp;quot;%d\t&amp;quot;,*(p+i));//将一维数组转化为二维数组进行访问，原理与上面相同	int arr[6] = &amp;#123; 6,5,4,3,2,1 
+                
+            </article>
+        </div>
+    </div>
+
+
+    
+        
+    <div class="post-wrap-right">
+        
+            <a class="post-link" href="/2023/07/19/C%20%20study%20%20%20first%20%20%20%20day/"></a>
+        
+        <div class="post-cover-right">
+            
+                
+                
+                    <img data-src="/covers/3.jpg" data-sizes="auto" alt="C语言进阶学习第一天" class="lazyload">
+                
+            
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -150,17 +262,19 @@
 
     
         
-    <div class="post-wrap-right">
+    <div class="post-wrap-left">
         
             <a class="post-link" href="/2023/07/08/C-stack/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 
                 
-                    <img data-src="/covers/1.jpg" data-sizes="auto" alt="C-stack" class="lazyload">
+                    <img data-src="/covers/4.jpg" data-sizes="auto" alt="C-stack" class="lazyload">
                 
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -191,19 +305,17 @@
 
     
         
-    <div class="post-wrap-left">
+    <div class="post-wrap-right">
         
             <a class="post-link" href="/2023/07/07/C-linklist/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 
                 
-                    <img data-src="/covers/3.jpg" data-sizes="auto" alt="C-linklist" class="lazyload">
+                    <img data-src="/covers/2.jpg" data-sizes="auto" alt="C-linklist" class="lazyload">
                 
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -237,17 +349,19 @@
 
     
         
-    <div class="post-wrap-right">
+    <div class="post-wrap-left">
         
             <a class="post-link" href="/2023/06/24/Git/"></a>
         
-        <div class="post-cover-right">
+        
+        <div class="post-cover-left">
             
                 
                 
-                    <img data-src="/covers/1.jpg" data-sizes="auto" alt="Git的常用命令" class="lazyload">
+                    <img data-src="/covers/5.jpg" data-sizes="auto" alt="Git的常用命令" class="lazyload">
                 
             
+
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -283,19 +397,17 @@
 
     
         
-    <div class="post-wrap-left">
+    <div class="post-wrap-right">
         
             <a class="post-link" href="/2023/06/23/hello-world/"></a>
         
-        
-        <div class="post-cover-left">
+        <div class="post-cover-right">
             
                 
                 
-                    <img data-src="/covers/3.jpg" data-sizes="auto" alt="Hello World" class="lazyload">
+                    <img data-src="/covers/1.jpg" data-sizes="auto" alt="Hello World" class="lazyload">
                 
             
-
         </div>
         <div class="post-info">
             <div class="post-meta">
@@ -339,7 +451,7 @@ More info: Writing
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>Posts</div>
-                <div class="sidebar-state-number">5</div>
+                <div class="sidebar-state-number">8</div>
             </div>
             <div class="sidebar-state-category">
                 <div>Categories</div>
@@ -408,7 +520,7 @@ More info: Writing
     <div class="widget-wrap">
         <h3 class="widget-title">Archives</h3>
         <div class="widget">
-            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
         </div>
     </div>
 
@@ -438,10 +550,10 @@ More info: Writing
             
                 <div>
                     <span class="icon-brush"></span>
-                    7.9k
+                    13.1k
                     &nbsp;|&nbsp;
                     <span class="icon-coffee"></span>
-                    00:37
+                    01:00
                 </div>
             
             
@@ -468,7 +580,7 @@ More info: Writing
         <div class="sidebar-state">
             <div class="sidebar-state-article">
                 <div>Posts</div>
-                <div class="sidebar-state-number">5</div>
+                <div class="sidebar-state-number">8</div>
             </div>
             <div class="sidebar-state-category">
                 <div>Categories</div>

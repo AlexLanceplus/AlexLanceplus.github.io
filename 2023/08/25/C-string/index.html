@@ -1,0 +1,450 @@
+
+    <!DOCTYPE html>
+    <html lang="en"
+            
+    >
+    <head>
+    <meta charset="utf-8">
+    
+
+    
+    <title>
+        C string |
+        
+        Alex</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="字符串常量和字符数组 字符串常量与字符数组具有一定的等价性，字符串常量的本质是const   char*  const类型，而字符数组则是char*类型，因此两者进行读写操作时，要考虑越界问题，一般来说，字符串常量很适用于那些不会对其进行修改的情形。要对其修改，则要存储于字符数组，当字符串存于字符数组，不存在读越界与写越界，那么就是可以称为等价了，越界的最主要原因是未能考虑到  ‘\0’  ，造">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C string">
+<meta property="og:url" content="http://example.com/2023/08/25/C-string/index.html">
+<meta property="og:site_name" content="Alex">
+<meta property="og:description" content="字符串常量和字符数组 字符串常量与字符数组具有一定的等价性，字符串常量的本质是const   char*  const类型，而字符数组则是char*类型，因此两者进行读写操作时，要考虑越界问题，一般来说，字符串常量很适用于那些不会对其进行修改的情形。要对其修改，则要存储于字符数组，当字符串存于字符数组，不存在读越界与写越界，那么就是可以称为等价了，越界的最主要原因是未能考虑到  ‘\0’  ，造">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-08-25T05:14:12.393Z">
+<meta property="article:modified_time" content="2023-08-28T06:43:58.605Z">
+<meta property="article:author" content="AlexLanceplus">
+<meta name="twitter:card" content="summary">
+    
+        <link rel="alternate" href="/atom.xml" title="Alex" type="application/atom+xml">
+    
+    
+        <link rel="shortcut icon" href="/images/favicon.ico">
+    
+    
+        
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@latest/index.min.css">
+
+    
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    
+        
+<link rel="stylesheet" href="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+
+    
+    
+    
+<script src="https://unpkg.com/pace-js@1.2.4/pace.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+    <body>
+    <div id="container">
+        <div id="wrap">
+            <header id="header">
+    
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="C string" class="lazyload">
+    
+    <div id="header-outer" class="outer">
+        <div id="header-title" class="inner">
+            <h1 id="logo-wrap">
+                
+                    
+                    
+                        <a href="/" id="logo">C string</a>
+                    
+                
+            </h1>
+            
+                
+                
+            
+        </div>
+        <div id="header-inner">
+            <nav id="main-nav">
+                <a id="main-nav-toggle" class="nav-icon"></a>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/">Home</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/archives">Archives</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/about">About</a>
+                    </span>
+                
+                    <span class="main-nav-link-wrap">
+                        <span class="main-nav-icon"></span>
+                        <a class="main-nav-link" href="/friend">Friend</a>
+                    </span>
+                
+            </nav>
+            <nav id="sub-nav">
+                
+                    <a id="nav-rss-link" class="nav-icon" href="/atom.xml"
+                       title="RSS Feed"></a>
+                
+                
+            </nav>
+            <div id="search-form-wrap">
+                <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+            </div>
+        </div>
+    </div>
+</header>
+
+            <div id="content" class="outer">
+                <section id="main"><article id="post-C-string" class="h-entry article article-type-post"
+         itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <div class="article-inner">
+        <div class="article-meta">
+            <div class="article-date">
+    <a href="/2023/08/25/C-string/" class="article-date-link">
+        <time datetime="2023-08-25T05:14:12.393Z"
+              itemprop="datePublished">2023-08-25</time>
+    </a>
+</div>
+
+            
+
+        </div>
+        <div class="hr-line"></div>
+        
+
+        <div class="e-content article-entry" itemprop="articleBody">
+            
+                <h3 id="字符串常量和字符数组"><a class="markdownIt-Anchor" href="#字符串常量和字符数组"></a> 字符串常量和字符数组</h3>
+<p>字符串常量与字符数组具有一定的等价性，字符串常量的本质是const   char*  const类型，而字符数组则是char*类型，因此两者进行读写操作时，要考虑越界问题，一般来说，字符串常量很适用于那些不会对其进行修改的情形。要对其修改，则要存储于字符数组，当字符串存于字符数组，不存在读越界与写越界，那么就是可以称为等价了，越界的最主要原因是未能考虑到  ‘\0’  ，造成越界，可以通过n字符串函数避免这一问题</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">char</span> buf1[<span class="number">10</span>]=<span class="string">&quot;abcdefghij&quot;</span>;</span><br><span class="line"><span class="type">char</span>* buf2=<span class="literal">NULL</span>;</span><br><span class="line"><span class="comment">//  strcpy(buf2,buf1)   读写越界</span></span><br><span class="line"><span class="built_in">strncpy</span>(buf2,buf1,<span class="number">9</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">char</span>* buf1=<span class="string">&quot;aaaaa&quot;</span></span><br><span class="line"><span class="type">char</span> buf2[<span class="number">40</span>];</span><br><span class="line"><span class="built_in">strncpy</span>(buf2,buf1,<span class="keyword">sizeof</span>(buf2)<span class="number">-1</span>) <span class="comment">//防止越界</span></span><br><span class="line">buf2[<span class="keyword">sizeof</span>(buf2)<span class="number">-1</span>]=<span class="string">&#x27;\0&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="基础字符串操作函数及自实现"><a class="markdownIt-Anchor" href="#基础字符串操作函数及自实现"></a> 基础字符串操作函数及自实现</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">mystrcmp</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* s1,<span class="type">const</span> <span class="type">char</span>* s2)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span>(;(s1&amp;&amp;s2)&amp;&amp;(*s2++==*s1++););</span><br><span class="line">    <span class="keyword">return</span> *s1-*s2;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">char</span>* <span class="title function_">mystrcpy</span><span class="params">(<span class="type">char</span>* dst,<span class="type">char</span>* s1)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span>* d=dst;</span><br><span class="line">    <span class="keyword">while</span>(*d++=*s1++);</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">mystrlen</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* s)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> len=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(*s++)</span><br><span class="line">        len++;</span><br><span class="line">    <span class="keyword">return</span> len;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">char</span>* <span class="title function_">mystrcat</span><span class="params">(<span class="type">char</span>* s1,<span class="type">char</span>* s2)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(*s1)</span><br><span class="line">        s1++;</span><br><span class="line">    <span class="keyword">while</span>(*s1++=*s2++);</span><br><span class="line">    <span class="keyword">return</span> s1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串操作函数提高"><a class="markdownIt-Anchor" href="#字符串操作函数提高"></a> 字符串操作函数提高</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//sprintf</span></span><br><span class="line"><span class="comment">//sprintf是将数据以指定格式输入到字符串中，格式为sprintf( char * str, const char * format，...)</span></span><br><span class="line"><span class="comment">//通过sprintf了解一下缓冲区的一些知识，缓冲区分为三种类型：全缓冲、行缓冲、无缓冲，其中无缓冲表示立即输出，不需要换行或者缓冲区满即可输出，比如stderr，行缓冲与全缓冲的区别在于行缓冲可以通过换行的方式来输出，与sprintf类似的还有fprintf，当程序运行时会打开三个文件stderr、stdout、stdin</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">        <span class="type">int</span> a,b,c,d;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;pls input ip:&quot;</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d.%d.%d.%d&quot;</span>,&amp;a,&amp;b,&amp;c,&amp;d);</span><br><span class="line">        <span class="type">char</span> buf[<span class="number">16</span>];</span><br><span class="line">        <span class="built_in">sprintf</span>(buf,<span class="string">&quot;%d.%d.%d.%d&quot;</span>,a,b,c,d);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,buf);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//atoi和itoa</span></span><br><span class="line"><span class="comment">//atoi的作用是将字符串转换为整数类型，atoi默认忽视先导空格符，只有遇到数字和正负号后才会开始计算，知道遇到非数字类型的符号结束，itoa则相反，其作用是将整数类型转换为字符串，不过使用itoa时需要指定进制类型</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">100</span>];</span><br><span class="line">    <span class="type">int</span> a = <span class="number">123</span>;</span><br><span class="line">    itoa(a,buf,<span class="number">10</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;base 10 %s\n&quot;</span>,buf);</span><br><span class="line">    itoa(a,buf,<span class="number">16</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;base 16 %s\n&quot;</span>,buf);</span><br><span class="line">    itoa(a,buf,<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;base 2 %s\n&quot;</span>,buf);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//strchr和strrchr</span></span><br><span class="line"><span class="comment">//strchr的作用是返回首次出现指定字符的指针地址，也就是其返回值类型是char*，而strrchr则相反，其是从右边开始查找，可以理解为最后出现指定字符的位置</span></span><br><span class="line"><span class="comment">//自实现</span></span><br><span class="line"><span class="type">char</span> * <span class="title function_">myStrchr</span><span class="params">(<span class="type">char</span> *str, <span class="type">int</span> ch)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(*str != ch&amp;&amp; *str != <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    str++;</span><br><span class="line">    <span class="keyword">if</span>(*str == <span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//strstr</span></span><br><span class="line"><span class="comment">//strstr的作用是寻找目标字符串中首次出现指定字符串的位置，并返回首地址</span></span><br><span class="line"><span class="comment">//自实现</span></span><br><span class="line"><span class="type">char</span>* <span class="title function_">mystrstr</span><span class="params">(<span class="type">char</span>* a,<span class="type">char</span>* b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(*b)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">while</span>(*a)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">for</span>(<span class="type">int</span> n=<span class="number">0</span>;*(a+n)==*(b+n);n++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span>(*(b+n+<span class="number">1</span>)==<span class="string">&#x27;\0&#x27;</span>)</span><br><span class="line">                    <span class="keyword">return</span> a;</span><br><span class="line">            &#125;</span><br><span class="line">            a++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//利用strstr计算指定字符串在目标字符串中出现的次数</span></span><br><span class="line"><span class="type">int</span>  <span class="title function_">calccount</span><span class="params">(<span class="type">char</span>* a,<span class="type">char</span>* b)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> count=<span class="number">0</span>;</span><br><span class="line">    <span class="type">int</span> len=<span class="built_in">strlen</span>(b);</span><br><span class="line">    <span class="keyword">while</span>(str=<span class="built_in">strstr</span>(a,b))</span><br><span class="line">    &#123;</span><br><span class="line">        count++:</span><br><span class="line">        str+=len;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> count;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//strtok</span></span><br><span class="line"><span class="comment">//strtok函数的作用是去除目标字符串中的指定字符,将一个完整的字符串分割为一组字符串，并将指定字符的位置替换为NULL</span></span><br><span class="line"><span class="comment">//strtok的实现方式需要两个指针，一个是静态指针用于保存再次调用时开始的位置，另一个则返回当前字符串的首地址</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> buf[] = <span class="string">&quot;sys:x:3:3:Ownerofsystemfiles:/usr/sys:&quot;</span>;</span><br><span class="line">    <span class="type">char</span> *p = strtok(buf,<span class="string">&quot;:&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span>(p != <span class="literal">NULL</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,p);</span><br><span class="line">        p = strtok(<span class="literal">NULL</span>,<span class="string">&quot;:&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串trim系列"><a class="markdownIt-Anchor" href="#字符串trim系列"></a> 字符串trim系列</h3>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//trim系列</span></span><br><span class="line"><span class="comment">//trim的作用是删掉字符串中的不可见字符</span></span><br><span class="line"><span class="comment">//去除左空格</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">trimleftspace</span><span class="params">(<span class="type">char</span>* str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span>* t=str;</span><br><span class="line">    <span class="keyword">if</span>(*t!=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">while</span>(*t=<span class="string">&#x27; &#x27;</span>)t++;</span><br><span class="line">    <span class="keyword">while</span>(*str++=*t++);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//去除右空格</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">trimrightspace</span><span class="params">(<span class="type">char</span>* str)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">while</span>(*str)str++;</span><br><span class="line">    <span class="keyword">while</span>(*(--str) == <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        *str = <span class="string">&#x27;\0&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//去除全空格</span></span><br><span class="line"><span class="type">void</span> trimallspace(<span class="type">char</span>* str)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span>* t=str;</span><br><span class="line">    <span class="keyword">while</span>(*str)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(*t!=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">            *str++=*t++;</span><br><span class="line">        t++;</span><br><span class="line">    &#125;</span><br><span class="line">    *str=<span class="string">&#x27;\0&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="字符串逆置系列"><a class="markdownIt-Anchor" href="#字符串逆置系列"></a> 字符串逆置系列</h3>
+<p>不创建多余的变量</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//迭代版</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">reversestring</span><span class="params">(<span class="type">char</span>* a)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span>* str1=a;</span><br><span class="line">    <span class="type">char</span>* str2=<span class="built_in">strlen</span>(a)<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">while</span>(str1&lt;str2)</span><br><span class="line">    &#123;</span><br><span class="line">        *str1^=*str2;</span><br><span class="line">        *str2^=*str1;</span><br><span class="line">        *str1^=*str2;</span><br><span class="line">        str1++;</span><br><span class="line">        str2--;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归版</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">reversestring</span><span class="params">(<span class="type">char</span>* a)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(*a)</span><br><span class="line">    &#123;</span><br><span class="line">        reversestring(a+<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>,*a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归并且保存变量</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="type">void</span> <span class="title function_">strReverse</span><span class="params">(<span class="type">char</span> * str,<span class="type">char</span> *buf)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span>(*str)</span><br><span class="line">    &#123;</span><br><span class="line">        strReverse(str+<span class="number">1</span>,buf);</span><br><span class="line">        <span class="comment">// printf(&quot;%c&quot;,*str);</span></span><br><span class="line">        <span class="built_in">strncat</span>(buf,str,<span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">char</span> buf[<span class="number">1024</span>] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="type">char</span> arr[] = <span class="string">&quot;china&quot;</span>;</span><br><span class="line">    strReverse(arr,buf);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s\n&quot;</span>,buf);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id=""><a class="markdownIt-Anchor" href="#"></a> </h3>
+
+            
+        </div>
+        <footer class="article-footer">
+            <a data-url="http://example.com/2023/08/25/C-string/" data-id="clluinosw0006wwv6guhkhaee" data-title="C string"
+               class="article-share-link">Share</a>
+            
+            
+
+        </footer>
+    </div>
+    
+        
+    <nav id="article-nav">
+        
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
+                
+                    
+                    
+                        <img data-src="/covers/2.jpg" data-sizes="auto" alt="" class="lazyload">
+                    
+                
+                <a href="/2023/08/21/C%20%20order/"></a>
+                <div class="article-nav-caption">Older</div>
+                <div class="article-nav-title">
+                    
+                        (no title)
+                    
+                </div>
+            </div>
+        
+    </nav>
+
+
+    
+</article>
+
+
+
+</section>
+                
+                    <aside id="sidebar">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="AlexLanceplus" class="lazyload">
+            <div class="sidebar-author-name">AlexLanceplus</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+    
+        
+
+    
+        
+
+    
+        
+    <div class="widget-wrap">
+        <h3 class="widget-title">Archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/07/">July 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/06/">June 2023</a></li></ul>
+        </div>
+    </div>
+
+
+    
+</aside>
+
+                
+            </div>
+            <footer id="footer">
+    <div class="footer-line"></div>
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            
+            <div>
+                <span class="icon-copyright"></span>
+                2020-2023
+                <span class="footer-info-sep"></span>
+                AlexLanceplus
+            </div>
+            
+                <div>
+                    Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>&nbsp;
+                    Theme.<a href="https://github.com/D-Sketon/hexo-theme-reimu" target="_blank">Reimu</a>
+                </div>
+            
+            
+                <div>
+                    <span class="icon-brush"></span>
+                    13.1k
+                    &nbsp;|&nbsp;
+                    <span class="icon-coffee"></span>
+                    01:00
+                </div>
+            
+            
+                <div>
+                    <span class="icon-eye"></span>
+                    <span id="busuanzi_container_site_pv">Number of visits&nbsp;<span id="busuanzi_value_site_pv"></span></span>
+                    &nbsp;|&nbsp;
+                    <span class="icon-user"></span>
+                    <span id="busuanzi_container_site_uv">Number of visitors&nbsp;<span id="busuanzi_value_site_uv"></span></span>
+                </div>
+            
+        </div>
+    </div>
+</footer>
+
+        </div>
+        <nav id="mobile-nav">
+    <div class="sidebar-wrap">
+        <div class="sidebar-author">
+            <img data-src="/avatar/avatar.jpg" data-sizes="auto" alt="AlexLanceplus" class="lazyload">
+            <div class="sidebar-author-name">AlexLanceplus</div>
+            <div class="sidebar-description"></div>
+        </div>
+        <div class="sidebar-state">
+            <div class="sidebar-state-article">
+                <div>Posts</div>
+                <div class="sidebar-state-number">8</div>
+            </div>
+            <div class="sidebar-state-category">
+                <div>Categories</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+            <div class="sidebar-state-tag">
+                <div>Tags</div>
+                <div class="sidebar-state-number">0</div>
+            </div>
+        </div>
+        <div class="sidebar-social">
+            
+                <div class=icon-github>
+                    <a href=https://github.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-google>
+                    <a href=https://plus.google.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-twitter>
+                    <a href=https://twitter.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+                <div class=icon-facebook>
+                    <a href=https://www.facebook.com/yourname itemprop="url" target="_blank"></a>
+                </div>
+            
+        </div>
+        <div class="sidebar-menu">
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Home</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/archives"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Archives</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/about"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">About</div>
+                </div>
+            
+                <div class="sidebar-menu-link-wrap">
+                    <a class="sidebar-menu-link-dummy" href="/friend"></a>
+                    <span class="sidebar-menu-icon"></span>
+                    <div class="sidebar-menu-link">Friend</div>
+                </div>
+            
+        </div>
+    </div>
+</nav>
+
+        
+<script src="https://unpkg.com/jquery@3.7.0/dist/jquery.min.js"></script>
+
+
+<script src="https://unpkg.com/lazysizes@5.3.2/lazysizes.min.js"></script>
+
+
+<script src="https://unpkg.com/clipboard@2.0.11/dist/clipboard.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+    
+<script src="https://unpkg.com/busuanzi@2.3.0/bsz.pure.mini.js"></script>
+
+
+
+
+    
+<script src="https://unpkg.com/mermaid@9.4.3/dist/mermaid.min.js"></script>
+
+    <script>
+        if (window.mermaid) {
+            mermaid.initialize({theme: 'forest'});
+        }
+    </script>
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="site-search">
+        <div class="algolia-popup popup">
+            <div class="algolia-search">
+                <span class="algolia-search-input-icon"></span>
+                <div class="algolia-search-input" id="algolia-search-input"></div>
+            </div>
+
+            <div class="algolia-results">
+                <div id="algolia-stats"></div>
+                <div id="algolia-hits"></div>
+                <div id="algolia-pagination" class="algolia-pagination"></div>
+            </div>
+
+            <span class="popup-btn-close"></span>
+        </div>
+    </div>
+    <!-- hexo injector body_end start -->
+<script src="/js/insertHighlight.js"></script>
+<!-- hexo injector body_end end --></body>
+    </html>
+
