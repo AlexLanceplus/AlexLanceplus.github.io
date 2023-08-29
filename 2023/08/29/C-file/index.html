@@ -9,19 +9,19 @@
 
     
     <title>
-        Hello World |
+        C SQL and SQLite3 |
         
         Alex</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.  Quic">
+    <meta name="description" content="动态库与静态库 函数库的意义是避免重复重写一些已经很完善的函数，比如printf等，函数库分为两种，静态库与动态库，静态库一般为libxxx.a，动态库则一般为libxxx.so,也有可能是libxxx.so.major.mininor，major表示主版本号，mininor则表示次版本号 动态库与静态库的链接方式也不相同，静态库的链接方式每当一个源文件调用该函数库的时候便将整个函数库链接进来，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2023/06/23/hello-world/index.html">
+<meta property="og:title" content="C SQL and SQLite3">
+<meta property="og:url" content="http://example.com/2023/08/29/C-file/index.html">
 <meta property="og:site_name" content="Alex">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.  Quic">
+<meta property="og:description" content="动态库与静态库 函数库的意义是避免重复重写一些已经很完善的函数，比如printf等，函数库分为两种，静态库与动态库，静态库一般为libxxx.a，动态库则一般为libxxx.so,也有可能是libxxx.so.major.mininor，major表示主版本号，mininor则表示次版本号 动态库与静态库的链接方式也不相同，静态库的链接方式每当一个源文件调用该函数库的时候便将整个函数库链接进来，">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-06-23T05:55:37.581Z">
-<meta property="article:modified_time" content="2023-06-24T07:22:29.198Z">
+<meta property="article:published_time" content="2023-08-29T00:48:00.107Z">
+<meta property="article:modified_time" content="2023-08-29T07:04:48.193Z">
 <meta property="article:author" content="AlexLanceplus">
 <meta name="twitter:card" content="summary">
     
@@ -54,7 +54,7 @@
         <div id="wrap">
             <header id="header">
     
-        <img data-src="/images/banner.jpg" data-sizes="auto" alt="Hello World" class="lazyload">
+        <img data-src="/images/banner.jpg" data-sizes="auto" alt="C SQL and SQLite3" class="lazyload">
     
     <div id="header-outer" class="outer">
         <div id="header-title" class="inner">
@@ -62,7 +62,7 @@
                 
                     
                     
-                        <a href="/" id="logo">Hello World</a>
+                        <a href="/" id="logo">C SQL and SQLite3</a>
                     
                 
             </h1>
@@ -111,14 +111,14 @@
 </header>
 
             <div id="content" class="outer">
-                <section id="main"><article id="post-hello-world" class="h-entry article article-type-post"
+                <section id="main"><article id="post-C-file" class="h-entry article article-type-post"
          itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
     <div class="article-inner">
         <div class="article-meta">
             <div class="article-date">
-    <a href="/2023/06/23/hello-world/" class="article-date-link">
-        <time datetime="2023-06-23T05:55:37.581Z"
-              itemprop="datePublished">2023-06-23</time>
+    <a href="/2023/08/29/C-file/" class="article-date-link">
+        <time datetime="2023-08-29T00:48:00.107Z"
+              itemprop="datePublished">2023-08-29</time>
     </a>
 </div>
 
@@ -130,25 +130,57 @@
 
         <div class="e-content article-entry" itemprop="articleBody">
             
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="quick-start"><a class="markdownIt-Anchor" href="#quick-start"></a> Quick Start</h2>
-<h3 id="create-a-new-post"><a class="markdownIt-Anchor" href="#create-a-new-post"></a> Create a new post</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="run-server"><a class="markdownIt-Anchor" href="#run-server"></a> Run server</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="generate-static-files"><a class="markdownIt-Anchor" href="#generate-static-files"></a> Generate static files</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="deploy-to-remote-sites"><a class="markdownIt-Anchor" href="#deploy-to-remote-sites"></a> Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h3 id="动态库与静态库"><a class="markdownIt-Anchor" href="#动态库与静态库"></a> 动态库与静态库</h3>
+<p>函数库的意义是避免重复重写一些已经很完善的函数，比如printf等，函数库分为两种，静态库与动态库，静态库一般为libxxx.a，<a target="_blank" rel="noopener" href="http://xn--libxxx-9m7iopu10a3mb595equd8o1m.so">动态库则一般为libxxx.so</a>,也有可能是libxxx.so.major.mininor，major表示主版本号，mininor则表示次版本号</p>
+<p>动态库与静态库的链接方式也不相同，静态库的链接方式每当一个源文件调用该函数库的时候便将整个函数库链接进来，形成一个完整的完整的可执行文件，该文件可以脱离函数库独立存在，但是缺点是内存消耗大，耗费空间，而动态库则是动态链接，每当源文件调用函数库的时候，便会将函数所需要的部分链接，当其他源文件调用相同函数的时候，则会通过地址映射的方式映射函数库,但是缺点也很明显，生成的可执行文件的运行离不开函数库</p>
+<p>Linux里的库一般储存在/user/lib     /lib</p>
+<p>在gcc编译环境下，静态库与动态库同名时，系统优先使用动态库</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//file.c  函数的具体实现  </span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;file.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//main.c   主函数</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&quot;file.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//file.h  函数的声明</span></span><br><span class="line"><span class="meta">#<span class="keyword">ifndef</span> _FILE_H_</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> _FILE_H_</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br></pre></td></tr></table></figure>
+<p>静态库的生成</p>
+<p>1 将 xx.c 文件生成 xx.o 文件 gcc  -c  xx.c</p>
+<p>2 将 xx.o 文件打包制作成 libxx.a 文件 ar rc libxx.a xx.o</p>
+<p>3 将 libxx.a 放到系统库，或指定链节路径下使用</p>
+<p>动态库的生成</p>
+<p>1 将 xx.c 文件生成 xx.o 文件 gcc -c xx.c</p>
+<p>2 将 xx.o 打包生成 <a target="_blank" rel="noopener" href="http://libxx.so">libxx.so</a> gcc  -shared  -fPIC  -o   <a target="_blank" rel="noopener" href="http://libxx.so">libxx.so</a> xx.o</p>
+<p>3 将 libxx.a 放到系统库，或指定链节路径下使用</p>
+<p>链接路径：</p>
+<p>链接时找不到某一个函数，出现&quot; xxxxx undefined”，应该就是链接时找不到相应的 动态库，连接时动态库的路径如下：</p>
+<p>1 默认路径是/lib,/usr/lib/, /usr/local/lib</p>
+<p>2 -L: 指定连接时动态库的路径</p>
+<p>3  LD_LIBRARY_PATH: 指定连接路径</p>
+<p>运行路径</p>
+<p>运行应用程序时出现 &quot;error while loading shared libraries” ，则是加载时找不到相 应的动态库</p>
+<p>1   默认的动态库搜索路径/lib；</p>
+<p>2   默认的动态库搜索路径/usr/lib</p>
+<p>3   环境变量 LD_LIBRARY_PATH 指定的动态库搜索路径；</p>
+<p>4   修改配置文件/etc/ld.so.conf 中指定的动态库搜索路径来改变,然后运行 ldconfig 更新一下，/etc/ld.so.cache</p>
+<h3 id="sqlite3"><a class="markdownIt-Anchor" href="#sqlite3"></a> sqlite3</h3>
+<p>SQLite 是一个开源的嵌入式关系数据库，实现自包容、零配置、支持事务的 SQL 数据 库引擎。 其特点是高度便携、使用方便、结构紧凑、高效、可靠，数据库的本质是文件，可以类比Excel文件，数据库文件以.db结尾，与Excel类似，数据库由许多表（table）组成，表又包括列与行</p>
+<p>1.sqlite3.exe [dbname] 打开 sqlite3 的交互模式，[并创建数据库]</p>
+<p>2 .open dbname 若未创建数据，可以创建数据库，若己创建则打开</p>
+<p>3 .databases 显示当前打开的数据库文件</p>
+<p>4 .exit 退出交互模式</p>
+<p>5 .help,列出命令的提示信息，可供于查阅</p>
+<p>1.open mydb 打开要创建表的那个数据库。</p>
+<p>2 create table  (field1 type1, field2 type2,…); 建表语句</p>
+<p>3 .tables 查看当前数据库下所有的表</p>
+<p>4 .schema [tbname] 查看表结构(主要看列信息)</p>
+<p>5 drop table ; 销毁表的语句</p>
+<p>1.tables 插入数据之前先确定，所要插入表的存在</p>
+<p>2 insert into  values (value1, value2,…);向表中添加新记录 insert into (key1, key2) values(value1, value2); 值和名字对应即可</p>
+<p>3 select filed1,field2 … from ;查询表中某些字段的记录</p>
+<p>4 select * from ;查询表中所有字段的记录</p>
+<p>5 .header on 显示字段名称</p>
+<p>6 .mode column 以列模式显示字段的记录。默认是 list 模</p>
+<p>order by field desc|asc 此子句，可以用于表达排序，desc 表示降序，asc 表示 升序</p>
+<p>1  update set ,…where ; 更新表中记录。若没有 where 子句，则会全部修改。</p>
+<p>2 delete from  where ; 若没有 where 子句，则 会删全表内容，但不同于 drop</p>
 
             
         </div>
         <footer class="article-footer">
-            <a data-url="http://example.com/2023/06/23/hello-world/" data-id="cllwd54b30009zov6g38nfkbh" data-title="Hello World"
+            <a data-url="http://example.com/2023/08/29/C-file/" data-id="cllwd54b20007zov63ieqd9c7" data-title="C SQL and SQLite3"
                class="article-share-link">Share</a>
             
             
@@ -159,22 +191,22 @@
         
     <nav id="article-nav">
         
-            <div class="article-nav-link-wrap article-nav-link-left">
+        
+            <div class="article-nav-link-wrap article-nav-link-right">
                 
                     
                     
-                        <img data-src="/covers/6.jpg" data-sizes="auto" alt="Git的常用命令" class="lazyload">
+                        <img data-src="/covers/1.jpg" data-sizes="auto" alt="C snake" class="lazyload">
                     
                 
-                <a href="/2023/06/24/Git/"></a>
-                <div class="article-nav-caption">Newer</div>
+                <a href="/2023/08/28/C-snake/"></a>
+                <div class="article-nav-caption">Older</div>
                 <div class="article-nav-title">
                     
-                        Git的常用命令
+                        C snake
                     
                 </div>
             </div>
-        
         
     </nav>
 
